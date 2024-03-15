@@ -137,8 +137,20 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
+        ansiblels = {},
+        dockerls = {},
+        golangci_lint_ls = {},
+        gopls = {},
+        jsonls = {},
+        -- perlls = {},
+        perlnavigator = {},
+        -- perlpls = {},
+        -- posgres_lsp = {},
+        pyright = {},
+        -- pyls = {},
+        pylyzer = {},
+        pyre = {},
+        yamlls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
