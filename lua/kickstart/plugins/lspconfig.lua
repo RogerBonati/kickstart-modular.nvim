@@ -150,7 +150,17 @@ return {
         -- pyls = {},
         pylyzer = {},
         pyre = {},
-        yamlls = {},
+        yamlls = {
+          -- on_attach=on_attach,
+          settings = {
+            yaml = {
+              schemas = {
+                ['https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json'] = 'conf/**/*catalog*',
+                ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+              },
+            },
+          },
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
