@@ -60,8 +60,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --    require('conform').format { bufnr = args.buf }
 --  end,
 --})
-local group = vim.api.nvim_create_augroup("Format", { clear = true })
-
+local group = vim.api.nvim_create_augroup('Format', { clear = true })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = group,
@@ -70,5 +69,21 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.cmd '%s/\\s\\+$//e'
   end,
 })
+
+-- Set the undo directory to a temporary directory
+local undo_dir = '/tmp/nvim_undo'
+
+-- Create the undo directory if it doesn't exist
+if vim.fn.isdirectory(undo_dir) == 0 then
+  vim.fn.mkdir(undo_dir, 'p')
+end
+
+-- Set the undo directory option using vim.o
+vim.o.undodir = undo_dir
+
+-- Automatically clear the undo directory on exit
+vim.cmd [[
+ autocmd VimLeave * silent! call delete(expand('&undodir'), 'rf')
+]]
 
 -- vim: ts=2 sts=2 sw=2 et
