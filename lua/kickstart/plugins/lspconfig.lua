@@ -153,9 +153,13 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local lspconfig = require 'lspconfig'
       local servers = {
         -- clangd = {},
-        ansiblels = {},
+        ansiblels = {
+          filetypes = { 'yaml', 'yml', 'ansible' },
+          root_dir = lspconfig.util.root_pattern('roles', 'playbooks'),
+        },
         dockerls = {},
         golangci_lint_ls = {},
         gopls = {},
