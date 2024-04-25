@@ -1,4 +1,4 @@
--- NOTE: Plugins can also be configured to run lua code when they are loaded.
+-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 --
 -- This is often very useful to both group configuration, as well as handle
 -- lazy loading plugins that don't need to be loaded immediately at startup.
@@ -27,7 +27,13 @@ return {
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
       }
+      -- visual mode
+      require('which-key').register({
+        ['<leader>h'] = { 'Git [H]unk' },
+      }, { mode = 'v' })
     end,
   },
 }
