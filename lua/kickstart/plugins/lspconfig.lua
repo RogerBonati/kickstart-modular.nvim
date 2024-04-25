@@ -126,6 +126,24 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      local on_attach = function(client, bufnr)
+        -- Define a function to safely set key mappings without overwriting existing ones
+        local function set_keymap(mode, lhs, rhs, opts)
+          local options = { noremap = true, silent = true }
+          for k, v in pairs(opts or {}) do
+            options[k] = v
+          end
+          vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, options)
+        end
+
+        -- Example key mappings
+        set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = 'Go to definition' })
+        set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = 'Go to references' })
+        -- Add more key mappings as needed
+
+        -- Additional LSP-related configurations can be added here
+      end
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -151,6 +169,7 @@ return {
         pylyzer = {},
         pyre = {},
         yamlls = {
+          capabilities = {},
           -- on_attach=on_attach,
           settings = {
             yaml = {
@@ -174,7 +193,7 @@ return {
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},
-          -- capabilities = {},
+          capabilities = {},
           settings = {
             Lua = {
               completion = {
@@ -186,7 +205,14 @@ return {
           },
         },
       }
-
+      for _, server in ipairs(servers) do
+        require('lspconfig')[server].setup {
+          on_attach = on_attach,
+          flags = {
+            debounce_text_changes = 150,
+          },
+        }
+      end
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
