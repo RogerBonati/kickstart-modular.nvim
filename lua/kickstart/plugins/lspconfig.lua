@@ -182,7 +182,13 @@ return {
         },
         dockerls = {},
         golangci_lint_ls = {},
-        gopls = {},
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
         jsonls = {},
         -- perlls = {},
         perlnavigator = {},
