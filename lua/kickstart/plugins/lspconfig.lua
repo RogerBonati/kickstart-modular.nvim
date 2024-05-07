@@ -208,6 +208,8 @@ return {
                 ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
                 ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/deploymentproject.json'] = '/mam-project.yml',
                 ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/ypasset.json'] = '/mam-project.yml',
+                -- Kubernetes schema for both.yaml and.yml files
+                ['https://json.schemastore.org/kubernetes'] = '**/*.{yaml,yml}',
               },
             },
           },
