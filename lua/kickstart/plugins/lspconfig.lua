@@ -204,12 +204,12 @@ return {
           settings = {
             yaml = {
               schemas = {
+                -- Kubernetes schema for both.yaml and.yml files
+                ['https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json'] = 'Koopa/**/*.+(yaml|yml)',
                 ['https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json'] = 'conf/**/*catalog*',
                 ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
                 ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/deploymentproject.json'] = '/mam-project.yml',
                 ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/ypasset.json'] = '/mam-project.yml',
-                -- Kubernetes schema for both.yaml and.yml files
-                ['https://json.schemastore.org/kubernetes'] = '**/*.{yaml,yml}',
               },
             },
           },
