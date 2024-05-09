@@ -90,4 +90,7 @@ vim.cmd [[
  autocmd VimLeave * silent! call delete(expand('&undodir'), 'rf')
 ]]
 
+-- set <leader>a to open documentation for ansible
+vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>', { noremap = true, silent = true })
+
 -- vim: ts=2 sts=2 sw=2 et
