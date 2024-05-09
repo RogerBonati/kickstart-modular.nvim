@@ -178,7 +178,7 @@ return {
         -- clangd = {},
         ansiblels = {
           filetypes = { 'yaml', 'yml', 'ansible' },
-          root_dir = lspconfig.util.root_pattern('roles', 'playbooks'),
+          root_dir = lspconfig.util.root_pattern('roles', 'playbooks', 'tasks'),
         },
         dockerls = {},
         golangci_lint_ls = {},
