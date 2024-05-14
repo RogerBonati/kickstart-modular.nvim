@@ -8,7 +8,17 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {0, {scope="line"}, desc = 'Show diagnostic [E]rror messages' })
+vim.keymap.set('n', '<leader>e', function()
+  local diagnostics = vim.diagnostic.get()
+  local lines = {}
+  for _, diag in ipairs(diagnostics) do
+    table.insert(lines, diag.message)
+  end
+  vim.diagnostic.open_float({ lines = lines }, { scope = 'full' })
+end, { desc = 'Show diagnostic [E]rror messages' })
+
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -53,15 +63,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- linting
---vim.api.nvim_create_autocmd('BufWritePre', {
---  pattern = '*.yaml,*.yml',
---  callback = function(args)
---    require('conform').format { bufnr = args.buf }
---  end,
---})
 local group = vim.api.nvim_create_augroup('Format', { clear = true })
 
+-- linting
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = group,
   pattern = '*.yaml,*.yml',
