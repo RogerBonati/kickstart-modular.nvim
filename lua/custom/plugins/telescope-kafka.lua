@@ -6,7 +6,7 @@ return {
   config = function()
     require('telescope').load_extension 'telescope_kafka'
     require('telescope_kafka').setup {
-      kcat_path = '<path to kcat>',
+      kcat_path = '/usr/local/bin/kcat',
     }
   end,
 
