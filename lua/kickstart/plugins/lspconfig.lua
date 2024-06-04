@@ -203,7 +203,7 @@ return {
           -- on_attach=on_attach,
           settings = {
             yaml = {
-              linelength = 140,
+              linelength = 340,
               schemas = {
                 -- Kubernetes schema for both.yaml and.yml files
                 ['https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json'] = 'Koopa/**/*.+(yaml|yml)',
