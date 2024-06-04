@@ -177,7 +177,8 @@ return {
       local servers = {
         -- clangd = {},
         ansiblels = {
-          filetypes = { 'yaml', 'yml', 'ansible' },
+          -- filetypes = { 'yaml', 'yml', 'ansible' },
+          filetypes = { 'ansible' },
           root_dir = lspconfig.util.root_pattern('roles', 'playbooks', 'tasks'),
         },
         dockerls = {},
