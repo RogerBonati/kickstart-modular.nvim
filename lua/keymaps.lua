@@ -6,8 +6,9 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+-- vim.keymap.set('n', '[d', vim.diagnostic.jump{count = 1}, { desc = 'Go to previous [D]iagnostic message' })
+-- vim.keymap.set('n', ']d', vim.diagnostic.jump{count = -1}, { desc = 'Go to next [D]iagnostic message' })
+
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {0, {scope="line"}, desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>e', function()
@@ -95,6 +96,42 @@ vim.cmd [[
 ]]
 
 -- set <leader>a to open documentation for ansible
-vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>', { noremap = true, silent = true, desc = 'open ansible help' })
 
+-- set <leader>yt to open yaml treesitter
+vim.api.nvim_set_keymap('n', '<leader>ya', ':lua vim.cmd("YAMLTelescope")<CR>', { noremap = true, silent = true, desc = 'open telescope for yaml' })
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>yt',
+  ':lua vim.cmd("Telescope yaml_schema")<CR>',
+  { noremap = true, silent = true, desc = 'open treesitter yaml schemas' }
+)
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>yy',
+  ':lua vim.cmd("YAMLYank")<CR>',
+  { noremap = true, silent = true, desc = 'yank full path and key of the current yaml key in buffer' }
+)
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>yk',
+  ':lua vim.cmd("YAMLYankKey")<CR>',
+  { noremap = true, silent = true, desc = 'yank the full path of the key for the current key / value pair' }
+)
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>yv',
+  ':lua vim.cmd("YAMLYankValue")<CR>',
+  { noremap = true, silent = true, desc = 'yank the value of the current key / value pair' }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>yq',
+  ':lua vim.cmd("YAMLQuickfix")<CR>',
+  { noremap = true, silent = true, desc = 'perform a yaml quickfix with the current key / value pairs' }
+)
 -- vim: ts=2 sts=2 sw=2 et
