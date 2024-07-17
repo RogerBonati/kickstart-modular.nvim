@@ -13,6 +13,8 @@ return {
   -- {{{ Define events to load Harpoon.
 
   keys = function()
+    require('telescope').load_extension 'harpoon'
+
     local harpoon = require 'harpoon'
     local conf = require('telescope.config').values
 
