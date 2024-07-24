@@ -38,6 +38,13 @@ return {
     return {
       -- Harpoon marked files 1 through 4
       {
+        '<leader>0',
+        function()
+          harpoon:list():remove()
+        end,
+        desc = 'Harpoon remove from list',
+      },
+      {
         '<leader>1',
         function()
           harpoon:list():select(1)
