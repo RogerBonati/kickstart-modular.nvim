@@ -132,4 +132,6 @@ vim.api.nvim_set_keymap(
   ':lua vim.cmd("YAMLQuickfix")<CR>',
   { noremap = true, silent = true, desc = 'perform a yaml quickfix with the current key / value pairs' }
 )
+
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- vim: ts=2 sts=2 sw=2 et
