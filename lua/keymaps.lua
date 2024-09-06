@@ -96,6 +96,9 @@ vim.cmd [[
 -- set <leader>a to open documentation for ansible
 vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>', { noremap = true, silent = true, desc = 'open ansible help' })
 
+-- neotree
+vim.api.nvim_set_keymap('n', '<leader>n', ':lua vim.cmd("Neotree")<CR>', { noremap = true, silent = true, desc = 'open neotree file explorer' })
+
 -- set <leader>yt to open yaml treesitter
 vim.api.nvim_set_keymap('n', '<leader>ya', ':lua vim.cmd("YAMLTelescope")<CR>', { noremap = true, silent = true, desc = 'open telescope for yaml' })
 
