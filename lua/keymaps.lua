@@ -99,6 +99,11 @@ vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>',
 -- neotree
 vim.api.nvim_set_keymap('n', '<leader>n', ':lua vim.cmd("Neotree")<CR>', { noremap = true, silent = true, desc = 'open neotree file explorer' })
 
+-- transparency
+vim.api.nvim_set_keymap('n', '<leader>te', ':lua vim.cmd("TransparentEnable")<CR>', { noremap = true, silent = true, desc = 'enable transparency' })
+vim.api.nvim_set_keymap('n', '<leader>td', ':lua vim.cmd("TransparentDisable")<CR>', { noremap = true, silent = true, desc = 'disable transparency' })
+vim.api.nvim_set_keymap('n', '<leader>tt', ':lua vim.cmd("TransparentToggle")<CR>', { noremap = true, silent = true, desc = 'toggle transparency' })
+
 -- set <leader>yt to open yaml treesitter
 vim.api.nvim_set_keymap('n', '<leader>ya', ':lua vim.cmd("YAMLTelescope")<CR>', { noremap = true, silent = true, desc = 'open telescope for yaml' })
 
