@@ -104,6 +104,15 @@ vim.api.nvim_set_keymap('n', '<leader>te', ':lua vim.cmd("TransparentEnable")<CR
 vim.api.nvim_set_keymap('n', '<leader>td', ':lua vim.cmd("TransparentDisable")<CR>', { noremap = true, silent = true, desc = 'disable transparency' })
 vim.api.nvim_set_keymap('n', '<leader>tt', ':lua vim.cmd("TransparentToggle")<CR>', { noremap = true, silent = true, desc = 'toggle transparency' })
 
+-- relative linenumbers on of or no numbers
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>lr',
+  ':lua vim.o.relativenumber = not vim.o.relativenumber<CR>',
+  { noremap = true, silent = true, desc = 'toggle relative linenumbers' }
+)
+vim.api.nvim_set_keymap('n', '<leader>ln', ':lua vim.opt.number = not vim.o.number<CR>', { noremap = true, silent = true, desc = 'toggle line numbering' })
+
 -- set <leader>yt to open yaml treesitter
 vim.api.nvim_set_keymap('n', '<leader>ya', ':lua vim.cmd("YAMLTelescope")<CR>', { noremap = true, silent = true, desc = 'open telescope for yaml' })
 
