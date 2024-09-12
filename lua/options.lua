@@ -3,6 +3,21 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Set the undo directory to a temporary directory
+local undo_dir = '/tmp/nvim_undo'
+
+-- Create the undo directory if it doesn't exist
+if vim.fn.isdirectory(undo_dir) == 0 then
+  vim.fn.mkdir(undo_dir, 'p')
+end
+
+-- Set the undo directory option using vim.o
+vim.o.undodir = undo_dir
+local o = vim.o
+o.expandtab = true -- expand tab input with spaces characters
+o.tabstop = 2 -- num of space characters per tab
+o.shiftwidth = 2 -- spaces per indentation level
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.

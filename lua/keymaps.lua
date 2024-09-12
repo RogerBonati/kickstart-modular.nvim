@@ -73,21 +73,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- Set the undo directory to a temporary directory
-local undo_dir = '/tmp/nvim_undo'
-
--- Create the undo directory if it doesn't exist
-if vim.fn.isdirectory(undo_dir) == 0 then
-  vim.fn.mkdir(undo_dir, 'p')
-end
-
--- Set the undo directory option using vim.o
-vim.o.undodir = undo_dir
-local o = vim.o
-o.expandtab = true -- expand tab input with spaces characters
-o.tabstop = 2 -- num of space characters per tab
-o.shiftwidth = 2 -- spaces per indentation level
-
 -- Automatically clear the undo directory on exit
 vim.cmd [[
  autocmd VimLeave * silent! call delete(expand('&undodir'), 'rf')
@@ -98,6 +83,9 @@ vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>',
 
 -- neotree
 vim.api.nvim_set_keymap('n', '<leader>n', ':lua vim.cmd("Neotree")<CR>', { noremap = true, silent = true, desc = 'open neotree file explorer' })
+
+-- oil
+vim.keymap.set('n', '-', ':lua vim.cmd("Oil")<CR>', { desc = 'Open parent directory' })
 
 -- transparency
 vim.api.nvim_set_keymap('n', '<leader>te', ':lua vim.cmd("TransparentEnable")<CR>', { noremap = true, silent = true, desc = 'enable transparency' })
