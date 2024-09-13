@@ -138,4 +138,30 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = 'perform a yaml quickfix with the current key / value pairs' }
 )
 
+-- Buffers
+
+vim.api.nvim_set_keymap('n', '<TAB>', ':lua vim.cmd("bnext")<CR>', { noremap = true, silent = true, desc = 'go to next buffer' })
+vim.api.nvim_set_keymap('n', '<S-TAB>', ':lua vim.cmd("bprevious")<CR>', { noremap = true, silent = true, desc = 'go to previous buffer' })
+vim.api.nvim_set_keymap('n', '<leader>x', ':lua vim.cmd("bdelete!")<CR>', { noremap = true, silent = true, desc = 'delete this buffer' })
+vim.api.nvim_set_keymap('n', '<leader>bn', ':lua vim.cmd(" enew ")<CR>', { noremap = true, silent = true, desc = 'make a new buffer' })
+
+-- Centered findings
+vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true, desc = 'centered half page down' })
+vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true, desc = 'centered half page up' })
+vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true, desc = 'find and center forward' })
+vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true, desc = 'find and center backward' })
+
+-- windows
+vim.api.nvim_set_keymap('n', '<leader>v', '<C-w>v', { noremap = true, silent = true, desc = 'split window vertically' })
+vim.api.nvim_set_keymap('n', '<leader>h', '<C-w>s', { noremap = true, silent = true, desc = 'split window horizontically' })
+vim.api.nvim_set_keymap('n', '<leader>se', '<C-w>=', { noremap = true, silent = true, desc = 'make split windows equal in width and height' })
+vim.api.nvim_set_keymap('n', '<leader>xs', ':lua vim.cmd("close")<CR>', { noremap = true, silent = true, desc = 'close current split window' })
+
+-- Toggle line wrapping
+vim.api.nvim_set_keymap('n', '<leader>lw', ':lua vim.cmd("set wrap!")<CR>', { noremap = true, silent = true, desc = 'toggle linewrapping' })
+
+-- Stay in visual mode when indenting
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true, desc = 'indent left' })
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true, desc = 'indent right' })
+
 -- vim: ts=2 sts=2 sw=2 et
