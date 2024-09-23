@@ -66,7 +66,7 @@ return {
         { '<leader>H', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
 
-      m = {
+      c = {
         name = 'ChatGPT',
         c = { '<cmd>ChatGPT<CR>', 'ChatGPT' },
         e = { '<cmd>ChatGPTEditWithInstruction<CR>', 'Edit with instruction', mode = { 'n', 'v' } },
