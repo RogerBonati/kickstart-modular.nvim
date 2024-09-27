@@ -83,6 +83,8 @@ vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>',
 
 -- neotree
 vim.api.nvim_set_keymap('n', '<leader>n', ':lua vim.cmd("Neotree")<CR>', { noremap = true, silent = true, desc = 'open neotree file explorer' })
+-- get rid of message buffer
+vim.api.nvim_set_keymap('n', '<leader>nd', ':lua vim.cmd("NoiceDismiss")<CR>', { noremap = true, silent = true, desc = 'dismiss noicy messages' })
 
 -- oil
 vim.keymap.set('n', '-', ':lua vim.cmd("Oil")<CR>', { desc = 'Open parent directory' })
