@@ -38,35 +38,35 @@ return {
     return {
       -- Harpoon marked files 1 through 4
       {
-        '<leader>0',
+        '<leader>h0',
         function()
           harpoon:list():remove()
         end,
         desc = 'Harpoon remove from list',
       },
       {
-        '<leader>1',
+        '<leader>h1',
         function()
           harpoon:list():select(1)
         end,
         desc = 'Harpoon buffer 1',
       },
       {
-        '<leader>2',
+        '<leader>h2',
         function()
           harpoon:list():select(2)
         end,
         desc = 'Harpoon buffer 2',
       },
       {
-        '<leader>3',
+        '<leader>h3',
         function()
           harpoon:list():select(3)
         end,
         desc = 'Harpoon buffer 3',
       },
       {
-        '<leader>4',
+        '<leader>h4',
         function()
           harpoon:list():select(4)
         end,
@@ -75,14 +75,14 @@ return {
 
       -- Harpoon next and previous.
       {
-        '<leader>5',
+        '<leader>h5',
         function()
           harpoon:list():next()
         end,
         desc = 'Harpoon next buffer',
       },
       {
-        '<leader>6',
+        '<leader>h6',
         function()
           harpoon:list():prev()
         end,
@@ -91,14 +91,14 @@ return {
 
       -- Harpoon user interface.
       {
-        '<leader>7',
+        '<leader>h7',
         function()
           harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
         desc = 'Harpoon Toggle Menu',
       },
       {
-        '<leader>8',
+        '<leader>h8',
         function()
           harpoon:list():add()
         end,
@@ -107,7 +107,7 @@ return {
 
       -- Use Telescope as Harpoon user interface.
       {
-        '<leader>9',
+        '<leader>h9',
         function()
           toggle_telescope(harpoon:list())
         end,
