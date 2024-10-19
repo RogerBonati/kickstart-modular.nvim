@@ -19,6 +19,7 @@ return {
         },
       },
       ui = { enable = false },
+      notes_subdir = '_Datumsnotizen',
       -- see below for full list of options 👇
     },
   },
