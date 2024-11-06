@@ -20,6 +20,18 @@ return {
       },
       ui = { enable = false },
       notes_subdir = '_Datumsnotizen',
+
+      -- Optional, for templates (see below).
+      templates = {
+        folder = '_Vorlagen',
+        date_format = '%Y-%m-%d',
+        time_format = '%H:%M',
+        -- A map for custom variables, the key should be the variable and the value a function
+        substitutions = {},
+      },
+      -- Either 'wiki' or 'markdown'.
+      -- preferred_link_style = 'wiki',
+      preferred_link_style = 'markdown',
       -- see below for full list of options 👇
     },
   },
