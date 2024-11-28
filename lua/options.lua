@@ -80,4 +80,37 @@ vim.opt.scrolloff = 10
 -- Dont use swap
 vim.opt.swapfile = false
 
+-- from linixdabbler https://gitlab.com/linuxdabbler/dotfiles/-/blob/main/.config/nvim/init.lua?ref_type=heads
+
+vim.opt.title = true -- show title
+vim.opt.syntax = 'ON'
+vim.opt.backup = false
+vim.opt.compatible = false -- turn off vi compatibility mode
+vim.opt.number = true -- turn on line numbers
+vim.opt.relativenumber = true -- turn on relative line numbers
+vim.opt.mouse = 'a' -- enable the mouse in all modes
+vim.opt.ignorecase = true -- enable case insensitive searching
+vim.opt.smartcase = true -- all searches are case insensitive unless there's a capital letter
+vim.opt.hlsearch = false -- disable all highlighted search results
+vim.opt.incsearch = true -- enable incremental searching
+vim.opt.wrap = true -- enable text wrapping
+-- vim.opt.tabstop = 4						-- tabs=4spaces
+vim.opt.shiftwidth = 4
+vim.opt.fileencoding = 'utf-8' -- encoding set to utf-8
+vim.opt.pumheight = 10 -- number of items in popup menu
+vim.opt.showtabline = 2 -- always show the tab line
+vim.opt.laststatus = 2 -- always show statusline
+vim.opt.signcolumn = 'auto'
+vim.opt.expandtab = false -- expand tab
+vim.opt.smartindent = true
+vim.opt.showcmd = true
+vim.opt.cmdheight = 2
+vim.opt.showmode = true
+-- vim.opt.scrolloff = 8					-- scroll page when cursor is 8 lines from top/bottom
+vim.opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
+vim.opt.guifont = 'monospace:h17'
+vim.opt.clipboard = unnamedplus
+vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.opt.termguicolors = true -- terminal gui colors
+
 -- vim: ts=2 sts=2 sw=2 et

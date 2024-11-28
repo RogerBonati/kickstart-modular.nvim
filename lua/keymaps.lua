@@ -166,4 +166,20 @@ vim.api.nvim_set_keymap('n', '<leader>lw', ':lua vim.cmd("set wrap!")<CR>', { no
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true, desc = 'indent left' })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true, desc = 'indent right' })
 
+-- linuxdabbler
+
+-- adjust split sizes easier
+vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize +2<CR>', { noremap = true, silent = true, desc = 'resize vsplit vertical +3' }) -- Control+Left resizes vertical split +
+vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize -2<CR>', { noremap = true, silent = true, desc = 'resize vsplit vertical -3' }) -- Control+Right resizes vertical split -
+
+vim.api.nvim_set_keymap('n', '<C-Up>', ':horizontal resize +2<CR>', { noremap = true, silent = true, desc = 'resize split vertical +3' }) -- Control+Left resizes vertical split +
+vim.api.nvim_set_keymap('n', '<C-Down>', ':horizontal resize -2<CR>', { noremap = true, silent = true, desc = 'resize split vertical -3' }) -- Control+Right resizes vertical split -
+
+-- reload config
+vim.api.nvim_set_keymap('n', '<leader>r', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = 'reload config' }) -- reload neovim config
+
+-- insert mode easy way to get back to normal mode from home row
+vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true, desc = 'simulate ESC in insert mode' }) -- kj simulates ESC
+vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true, desc = 'simulate ESC in insert mode' }) -- jk simulates ESC
+
 -- vim: ts=2 sts=2 sw=2 et
