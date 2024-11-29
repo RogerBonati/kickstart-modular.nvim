@@ -176,7 +176,7 @@ vim.api.nvim_set_keymap('n', '<C-Up>', ':horizontal resize +2<CR>', { noremap = 
 vim.api.nvim_set_keymap('n', '<C-Down>', ':horizontal resize -2<CR>', { noremap = true, silent = true, desc = 'resize split vertical -3' }) -- Control+Right resizes vertical split -
 
 -- reload config
-vim.api.nvim_set_keymap('n', '<leader>r', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = 'reload config' }) -- reload neovim config
+vim.api.nvim_set_keymap('n', '<leader>rl', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = 'reload config' }) -- reload neovim config
 
 -- insert mode easy way to get back to normal mode from home row
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true, desc = 'simulate ESC in insert mode' }) -- kj simulates ESC
