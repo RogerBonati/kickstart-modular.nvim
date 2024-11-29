@@ -82,6 +82,18 @@ vim.opt.swapfile = false
 
 -- from linixdabbler https://gitlab.com/linuxdabbler/dotfiles/-/blob/main/.config/nvim/init.lua?ref_type=heads
 
+local function get_all_buffers()
+  local buffers = {}
+  for i = 1, vim.api.nvim_list_bufs()[1] do
+    table.insert(buffers, vim.api.nvim_buf_get_name(i))
+  end
+  return table.concat(buffers, ' ')
+end
+
+-- vim.api.nvim_set_hl(0, 'StatusLine', { bg = '#000000', fg = '#ffffff' })
+vim.api.nvim_set_option_value('statusline', get_all_buffers(), {})
+-- Use a custom function for the statusline
+
 vim.opt.title = true -- show title
 vim.opt.syntax = 'ON'
 vim.opt.backup = false
@@ -109,7 +121,7 @@ vim.opt.showmode = true
 -- vim.opt.scrolloff = 8					-- scroll page when cursor is 8 lines from top/bottom
 vim.opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
 vim.opt.guifont = 'monospace:h17'
-vim.opt.clipboard = unnamedplus
+vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.termguicolors = true -- terminal gui colors
 
