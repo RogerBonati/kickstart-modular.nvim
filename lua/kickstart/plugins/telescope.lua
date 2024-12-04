@@ -63,6 +63,13 @@ return {
         -- },
         -- pickers = {}
         extensions = {
+          colorscheme = {
+            -- theme = "ivy",
+            theme = 'tokyonight',
+            sort_last_used = false,
+            check_all_colorschemes = true,
+            enable_preview = true,
+          },
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -71,6 +78,7 @@ return {
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
+      pcall(require('telescope').load_extension, 'colorscheme')
       pcall(require('telescope').load_extension, 'ui-select')
 
       -- See `:help telescope.builtin`

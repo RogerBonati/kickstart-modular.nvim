@@ -1,7 +1,3 @@
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -140,7 +136,16 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = 'perform a yaml quickfix with the current key / value pairs' }
 )
 
--- Buffers
+-- colorscheme
+vim.api.nvim_set_keymap('n', '<leader>cc', ':lua vim.cmd("Telescope colorscheme")<CR>', { noremap = true, desc = 'Select colorscheme' })
+
+-- vim.api.nvim_set_keymap(
+--   'n',
+--   '<leader>cc',
+--   ':lua require("telescope").extensions.colorscheme.select({ enable_preview = true })<CR>',
+--   { noremap = true, desc = 'Select colorscheme (with preview)' }
+-- )
+-- -- Buffers
 
 vim.api.nvim_set_keymap('n', '<TAB>', ':lua vim.cmd("bnext")<CR>', { noremap = true, silent = true, desc = 'go to next buffer' })
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':lua vim.cmd("bprevious")<CR>', { noremap = true, silent = true, desc = 'go to previous buffer' })
