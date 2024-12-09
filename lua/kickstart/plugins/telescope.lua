@@ -61,7 +61,11 @@ return {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            theme = 'ivy',
+          },
+        },
         extensions = {
           colorscheme = {
             -- theme = "ivy",
@@ -83,6 +87,13 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      -- tj, edit config
+      vim.keymap.set('n', '<leader>en', function()
+        require('telescope.builtin').find_files {
+          cwd = vim.fn.stdpath 'config',
+        }
+      end)
+      --
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
       vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
