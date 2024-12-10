@@ -67,6 +67,7 @@ return {
           },
         },
         extensions = {
+          fzf = {},
           colorscheme = {
             -- theme = "ivy",
             theme = 'tokyonight',
