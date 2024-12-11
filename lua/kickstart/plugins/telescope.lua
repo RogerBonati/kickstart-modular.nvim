@@ -80,7 +80,8 @@ return {
           },
         },
       }
-
+      -- tj multigrep
+      require('config.telescope.multigrep').setup()
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'colorscheme')
