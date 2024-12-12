@@ -15,6 +15,7 @@ local live_multigrep = function(opts)
       -- split the prompt at double spaces (if given)
       local pieces = vim.split(prompt, '  ')
       local args = { 'rg' }
+      local args2 = { '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }
       if pieces[1] then
         table.insert(args, '-e')
         table.insert(args, pieces[1])
@@ -23,11 +24,7 @@ local live_multigrep = function(opts)
         table.insert(args, '-g')
         table.insert(args, pieces[2])
       end
-      ---@diagnostic disable-next-line: deprecated
-      return vim.tbl_flatten {
-        args,
-        { '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' },
-      }
+      return vim.iter({ args, args2 }):flatten():totable()
     end,
     entry_maker = make_enty.gen_from_vimgrep(opts),
     cwd = opts.cwd,
