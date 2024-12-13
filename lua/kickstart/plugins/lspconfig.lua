@@ -247,9 +247,9 @@ return {
         --
 
         lua_ls = {
-          -- cmd = {...},
-          -- filetypes { ...},
-          capabilities = {},
+          -- cmd = { ... },
+          -- filetypes = { ... },
+          -- capabilities = {},
           settings = {
             Lua = {
               completion = {
