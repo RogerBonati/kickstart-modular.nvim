@@ -103,7 +103,8 @@ vim.opt.relativenumber = true -- turn on relative line numbers
 vim.opt.mouse = 'a' -- enable the mouse in all modes
 vim.opt.ignorecase = true -- enable case insensitive searching
 vim.opt.smartcase = true -- all searches are case insensitive unless there's a capital letter
-vim.opt.hlsearch = false -- disable all highlighted search results
+-- vim.opt.hlsearch = false -- disable all highlighted search results
+vim.opt.hlsearch = true
 vim.opt.incsearch = true -- enable incremental searching
 vim.opt.wrap = true -- enable text wrapping
 -- vim.opt.tabstop = 4						-- tabs=4spaces
