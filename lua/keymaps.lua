@@ -88,7 +88,7 @@ vim.keymap.set('n', '-', ':lua vim.cmd("Oil")<CR>', { desc = 'Open parent direct
 -- transparency
 vim.api.nvim_set_keymap('n', '<leader>te', ':lua vim.cmd("TransparentEnable")<CR>', { noremap = true, silent = true, desc = 'enable transparency' })
 vim.api.nvim_set_keymap('n', '<leader>td', ':lua vim.cmd("TransparentDisable")<CR>', { noremap = true, silent = true, desc = 'disable transparency' })
-vim.api.nvim_set_keymap('n', '<leader>tt', ':lua vim.cmd("TransparentToggle")<CR>', { noremap = true, silent = true, desc = 'toggle transparency' })
+vim.api.nvim_set_keymap('n', '<leader>tr', ':lua vim.cmd("TransparentToggle")<CR>', { noremap = true, silent = true, desc = 'toggle transparency' })
 
 -- relative linenumbers on of or no numbers
 vim.api.nvim_set_keymap(
