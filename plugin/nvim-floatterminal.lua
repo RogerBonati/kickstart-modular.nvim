@@ -6,37 +6,38 @@ local state = {
     win = -1,
   },
 }
+
 local function create_floating_window(opts)
   opts = opts or {}
   local width = opts.width or math.floor(vim.o.columns * 0.8)
   local height = opts.height or math.floor(vim.o.lines * 0.8)
 
-  -- calculate position to center the window
+  -- Calculate the position to center the window
   local col = math.floor((vim.o.columns - width) / 2)
   local row = math.floor((vim.o.lines - height) / 2)
 
-  -- create a buffer
+  -- Create a buffer
   local buf = nil
-
   if vim.api.nvim_buf_is_valid(opts.buf) then
-    opts = opts.buf
+    buf = opts.buf
   else
-    buf = vim.api.nvim_create_buf(false, true) -- no file, scratch buffer
+    buf = vim.api.nvim_create_buf(false, true) -- No file, scratch buffer
   end
 
-  -- define window configuration
+  -- Define window configuration
   local win_config = {
     relative = 'editor',
     width = width,
     height = height,
     col = col,
     row = row,
-    style = 'minimal', -- No borders or extra ui elements
+    style = 'minimal', -- No borders or extra UI elements
     border = 'rounded',
   }
 
-  -- create the floating window
+  -- Create the floating window
   local win = vim.api.nvim_open_win(buf, true, win_config)
+
   return { buf = buf, win = win }
 end
 
@@ -50,7 +51,8 @@ local toggle_terminal = function()
     vim.api.nvim_win_hide(state.floating.win)
   end
 end
--- create a floating window with default dimensions
 
+-- Example usage:
+-- Create a floating window with default dimensions
 vim.api.nvim_create_user_command('Floatterminal', toggle_terminal, {})
 vim.keymap.set({ 'n', 't' }, '<space>tt', toggle_terminal, { desc = 'toggle terminal' })
