@@ -19,7 +19,7 @@ local function create_floating_window(opts)
   local buf = nil
 
   if vim.api.nvim_buf_is_valid(opts.buf) then
-    opts = buf.opts
+    opts = opts.buf
   else
     buf = vim.api.nvim_create_buf(false, true) -- no file, scratch buffer
   end
