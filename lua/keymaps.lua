@@ -44,36 +44,6 @@ vim.keymap.set('n', '<leader>l', function()
   require('conform').format { bufnr = vim.api.nvim_get_current_buf() }
 end, { desc = 'Trigger formatting for current file' })
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
-
-local group = vim.api.nvim_create_augroup('Format', { clear = true })
-
--- linting
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = group,
-  pattern = '*.yaml,*.yml',
-  callback = function()
-    vim.cmd '%s/\\s\\+$//e'
-  end,
-})
-
--- Automatically clear the undo directory on exit
-vim.cmd [[
- autocmd VimLeave * silent! call delete(expand('&undodir'), 'rf')
-]]
-
 -- set <leader>a to open documentation for ansible
 vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>', { noremap = true, silent = true, desc = 'open ansible help' })
 
@@ -186,5 +156,10 @@ vim.api.nvim_set_keymap('n', '<leader>rl', ':source ~/.config/nvim/init.lua<CR>'
 -- insert mode easy way to get back to normal mode from home row
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true, desc = 'simulate ESC in insert mode' }) -- kj simulates ESC
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true, desc = 'simulate ESC in insert mode' }) -- jk simulates ESC
+
+-- execute some lua or source the file from tj
+vim.keymap.set('n', '<space><space>x', '<cmd>source %<CR>')
+vim.keymap.set('n', '<space>x', ':.lua<CR>')
+vim.keymap.set('v', '<space>x', ':lua<CR>')
 
 -- vim: ts=2 sts=2 sw=2 et
