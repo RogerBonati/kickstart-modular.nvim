@@ -158,7 +158,7 @@ vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true, des
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true, desc = 'simulate ESC in insert mode' }) -- jk simulates ESC
 
 -- execute some lua or source the file from tj
-vim.keymap.set('n', '<space><space>x', '<cmd>source %<CR>')
+vim.keymap.set('n', '<space>_x', '<cmd>source %<CR>')
 vim.keymap.set('n', '<space>x', ':.lua<CR>')
 vim.keymap.set('v', '<space>x', ':lua<CR>')
 

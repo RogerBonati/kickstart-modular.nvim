@@ -39,4 +39,17 @@ return {
       lsp_doc_border = false, -- add a border to hover docs and signature help
     },
   },
+
+  -- test
+  popupmenu = {
+    backend = 'leap',
+    kind_icons = false,
+  },
+  cmdline = {
+    format = {
+      popupmenu = { view = 'popup' },
+    },
+  },
+
+  -- test
 }

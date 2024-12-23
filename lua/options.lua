@@ -126,4 +126,6 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.termguicolors = true -- terminal gui colors
 
+vim.opt.signcolumn = 'yes:1'
+
 -- vim: ts=2 sts=2 sw=2 et
