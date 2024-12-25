@@ -48,7 +48,7 @@ end, { desc = 'Trigger formatting for current file' })
 vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.cmd("AnsibleDocFloat")<CR>', { noremap = true, silent = true, desc = 'open ansible help' })
 
 -- neotree
-vim.api.nvim_set_keymap('nt', '<leader>n', ':lua vim.cmd("Neotree")<CR>', { noremap = true, silent = true, desc = 'open neotree file explorer' })
+vim.api.nvim_set_keymap('n', '<leader>nt', ':lua vim.cmd("Neotree")<CR>', { noremap = true, silent = true, desc = 'open neotree file explorer' })
 -- get rid of message buffer
 vim.api.nvim_set_keymap('n', '<leader>nd', ':lua vim.cmd("NoiceDismiss")<CR>', { noremap = true, silent = true, desc = 'dismiss noicy messages' })
 

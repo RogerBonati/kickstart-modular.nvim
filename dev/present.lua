@@ -82,13 +82,13 @@ M.start_presentation = function(opts)
 
   local current_slide = 1
 
-  vim.keymap.set('n', 'ne', function()
+  vim.keymap.set('n', 'n', function()
     current_slide = math.min(current_slide + 1, #parsed.slides)
     set_slide_content(current_slide)
     vim.api.nvim_buf_set_lines(float.buf, 0, -1, false, parsed.slides[current_slide].body)
   end, { buffer = float.buf })
 
-  vim.keymap.set('n', 'pr', function()
+  vim.keymap.set('n', 'p', function()
     current_slide = math.max(current_slide - 1, 1)
     set_slide_content(current_slide)
   end, { buffer = float.buf })
@@ -118,7 +118,8 @@ M.start_presentation = function(opts)
       end
     end,
   })
-  vim.api.nvim_buf_set_lines(float.buf, 0, -1, false, parsed.slides[1])
+  -- vim.api.nvim_buf_set_lines(float.buf, 0, -1, false, parsed.slides[1])
+  set_slide_content(current_slide)
   -- vim.print(parse_slides {
   --   '# Hello',
   --   'This is something else',
