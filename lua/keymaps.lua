@@ -158,8 +158,11 @@ vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true, des
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true, desc = 'simulate ESC in insert mode' }) -- jk simulates ESC
 
 -- execute some lua or source the file from tj
-vim.keymap.set('n', '<space>_x', '<cmd>source %<CR>')
-vim.keymap.set('n', '<space>x', ':.lua<CR>')
-vim.keymap.set('v', '<space>x', ':lua<CR>')
+vim.keymap.set('n', '<space>_x', '<cmd>source %<CR>', { noremap = true, silent = true, desc = 'source actual file' })
+vim.keymap.set('n', '<space>x', ':.lua<CR>', { noremap = true, silent = true, desc = 'execute actual file' })
+vim.keymap.set('v', '<space>x', ':lua<CR>', { noremap = true, silent = true, desc = 'execute actual file' })
+
+-- tests (for present plugin)
+vim.keymap.set('n', '<space>_t', '<cmd>PlenaryBustedFile %<CR>', { noremap = true, silent = true, desc = 'run tests on actual file' })
 
 -- vim: ts=2 sts=2 sw=2 et
