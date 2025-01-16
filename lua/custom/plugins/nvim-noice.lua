@@ -4,12 +4,12 @@ return {
   event = 'VeryLazy',
   opts = {
 
-    routes = {
-      {
-        view = 'notify',
-        filter = { event = 'msg_showmode' },
-      },
-    },
+    -- routes = {
+    --   {
+    --     view = 'notify',
+    --     filter = { event = 'msg_showmode' },
+    --   },
+    -- },
     -- add any options here
   },
   dependencies = {
@@ -22,6 +22,12 @@ return {
     { 'rcarriga/nvim-notify', enabled = true },
   },
   require('noice').setup {
+    routes = {
+      {
+        view = 'notify',
+        filter = { event = 'msg_showmode' },
+      },
+    },
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {
