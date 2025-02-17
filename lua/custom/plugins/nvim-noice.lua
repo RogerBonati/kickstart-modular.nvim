@@ -11,6 +11,8 @@ return {
     --   },
     -- },
     -- add any options here
+    -- throttle = 1000 / 120, -- Adjust to your preference
+    throttle = 1000 / 480, -- Adjust to your preference
   },
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
