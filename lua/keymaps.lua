@@ -53,7 +53,7 @@ vim.api.nvim_set_keymap('n', '<leader>nt', ':lua vim.cmd("Neotree")<CR>', { nore
 vim.api.nvim_set_keymap('n', '<leader>nd', ':lua vim.cmd("NoiceDismiss")<CR>', { noremap = true, silent = true, desc = 'dismiss noicy messages' })
 
 -- oil
-vim.keymap.set('n', '-', ':lua vim.cmd("Oil")<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '-', ':lua vim.cmd("Oil --float")<CR>', { desc = 'Open parent directory' })
 
 -- transparency
 vim.api.nvim_set_keymap('n', '<leader>te', ':lua vim.cmd("TransparentEnable")<CR>', { noremap = true, silent = true, desc = 'enable transparency' })
