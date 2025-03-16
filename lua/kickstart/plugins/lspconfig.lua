@@ -119,7 +119,8 @@ return {
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          -- if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client and client.supports_method 'textDocument/documentHighlight' then
             local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
@@ -168,7 +169,7 @@ return {
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local on_attach = function(client, bufnr)
@@ -293,6 +294,24 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        ensure_installed = {
+          -- General purpose LSPs
+          'lua_ls', -- Lua support
+          'pyright', -- Python support
+          'rust_analyzer', -- Rust support
+
+          -- Web development
+          'html', -- HTML support
+          -- 'cssls', -- CSS support
+          -- 'tailwindcss', -- Tailwind CSS support
+          -- 'tsserver', -- TypeScript/JavaScript support
+
+          -- Other popular languages
+          'jsonls', -- JSON support
+          'yamlls', -- YAML support
+          'bashls', -- Bash support
+        },
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}

@@ -122,6 +122,7 @@ vim.api.nvim_set_keymap('n', '<S-TAB>', ':lua vim.cmd("bprevious")<CR>', { norem
 vim.api.nvim_set_keymap('n', '<leader>x', ':lua vim.cmd("bdelete!")<CR>', { noremap = true, silent = true, desc = 'delete this buffer' })
 vim.api.nvim_set_keymap('n', '<leader>bn', ':lua vim.cmd(" enew ")<CR>', { noremap = true, silent = true, desc = 'make a new buffer' })
 
+vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'open diagnsotics in a float' })
 --vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end,
 --    {desc="open diagnostics in float"}
 --)
