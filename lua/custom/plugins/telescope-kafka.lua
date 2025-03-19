@@ -4,7 +4,7 @@ return {
     'nvim-telescope/telescope.nvim',
   },
   config = function()
-    require('fzf-lua').live 'telescope_kafka'
+    require('telescope').load_extension 'telescope_kafka'
     require('telescope_kafka').setup {
       kcat_path = '/usr/local/bin/kcat',
     }
