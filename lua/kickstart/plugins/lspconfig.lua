@@ -208,6 +208,7 @@ return {
           filetypes = { 'yaml', 'yml', 'ansible' },
           root_dir = lspconfig.util.root_pattern('roles', 'playbooks', 'tasks'),
         },
+        bashls = {},
         dockerls = {},
         golangci_lint_ls = {},
         gopls = {
