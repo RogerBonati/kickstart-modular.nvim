@@ -61,6 +61,12 @@ vim.api.nvim_set_keymap('n', '<leader>nd', ':lua vim.cmd("NoiceDismiss")<CR>', {
 -- oil
 vim.keymap.set('n', '-', ':lua vim.cmd("Oil --float")<CR>', { desc = 'Open parent directory' })
 
+-- toggle markdown preview
+
+vim.api.nvim_set_keymap('n', '<leader>mt', ':lua vim.cmd("MarkdownPreviewToggle")<CR>', { noremap = true, silent = true, desc = 'toggle markdown preview' })
+vim.api.nvim_set_keymap('n', '<leader>mp', ':lua vim.cmd("MarkdownPreview")<CR>', { noremap = true, silent = true, desc = 'markdown preview' })
+vim.api.nvim_set_keymap('n', '<leader>ms', ':lua vim.cmd("MarkdownPreviewStop")<CR>', { noremap = true, silent = true, desc = 'stop markdown preview' })
+
 -- transparency
 vim.api.nvim_set_keymap('n', '<leader>te', ':lua vim.cmd("TransparentEnable")<CR>', { noremap = true, silent = true, desc = 'enable transparency' })
 vim.api.nvim_set_keymap('n', '<leader>td', ':lua vim.cmd("TransparentDisable")<CR>', { noremap = true, silent = true, desc = 'disable transparency' })
