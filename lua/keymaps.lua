@@ -8,12 +8,13 @@ end, { desc = 'conform test' })
 --
 -- Diagnostic keymaps
 
--- vim.keymap.set('n', '[d', vim.diagnostic.jump { count = 1 }, { desc = 'Go to previous [D]iagnostic message' })
--- vim.keymap.set('n', ']d', vim.diagnostic.jump { count = -1 }, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[d', vim.diagnostic.jump { count = 1 }, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.jump { count = -1 }, { desc = 'Go to next [D]iagnostic message' })
 
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {0, {scope="line"}, desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>e', function()
+
+vim.keymap.set('n', '<leader>er', function()
   local diagnostics = vim.diagnostic.get()
   local lines = {}
   for _, diag in ipairs(diagnostics) do
