@@ -1,4 +1,3 @@
--- LSP Plugins
 return {
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -190,13 +189,13 @@ return {
         -- vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 
         -- Add more key mappings as needed
-        set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'lsp show message when hover' })
-        set_keymap('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format()<CR>', { desc = 'lsp format buffer' })
-        set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'lsp code action' })
-        set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'lsp rename/refactor token' })
-        set_keymap('n', '<leader>ck', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'lsp open float' })
-        set_keymap('n', '<leader>cn', '<cmd>lua vim.diagnostic.jump({ count = 1, float = true })<CR>', { desc = 'lsp next message' })
-        set_keymap('n', '<leader>cp', '<cmd>lua vim.diagnostic.jump({ count = -1, float = true })<CR>', { desc = 'lsp previous message' })
+        set_keymap('n', 'K', vim.lsp.buf.hover(), { desc = 'lsp show message when hover' })
+        set_keymap('n', '<leader>cf', vim.lsp.buf.format(), { desc = 'lsp format buffer' })
+        set_keymap('n', '<leader>ca', vim.lsp.buf.code_action(), { desc = 'lsp code action' })
+        set_keymap('n', '<leader>cr', vim.lsp.buf.rename(), { desc = 'lsp rename/refactor token' })
+        set_keymap('n', '<leader>ck', vim.diagnostic.open_float(), { desc = 'lsp open float' })
+        set_keymap('n', '<leader>cn', vim.diagnostic.jump { count = 1, float = true }, { desc = 'lsp next message' })
+        set_keymap('n', '<leader>cp', vim.diagnostic.jump { count = -1, float = true }, { desc = 'lsp previous message' })
 
         -- Additional LSP-related configurations can be added here
       end
