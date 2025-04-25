@@ -196,7 +196,7 @@ return {
         set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'lsp rename/refactor token' })
         set_keymap('n', '<leader>ck', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'lsp open float' })
         set_keymap('n', '<leader>cn', '<cmd>lua vim.diagnostic.jump({ count = 1, float = true })<CR>', { desc = 'lsp next message' })
-        set_keymap('n', '<leader>cp', '<cmd>lua vim.diagnostic.jump( { count = -1, float = true })<CR>', { desc = 'lsp previous message' })
+        set_keymap('n', '<leader>cp', '<cmd>lua vim.diagnostic.jump({ count = -1, float = true })<CR>', { desc = 'lsp previous message' })
 
         -- Additional LSP-related configurations can be added here
       end
