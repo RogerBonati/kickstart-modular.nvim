@@ -94,7 +94,6 @@ return {
           --  the definition of its *type*, not where it was *defined*.
           map('<leader>D', require('fzf-lua').lsp_typedefs, 'Type [D]efinition')
 
-          -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
           -- map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
           map('<leader>ds', require('fzf-lua').lsp_document_symbols, '[D]ocument [S]ymbols')
@@ -183,20 +182,20 @@ return {
         end
 
         -- Example key mappings
-        set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = 'Go to definition' })
-        set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = 'Go to references' })
+        set_keymap('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
+        set_keymap('n', 'gr', vim.lsp.buf.references, { desc = 'Go to references' })
 
         -- vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 
         -- Add more key mappings as needed
-        set_keymap('n', 'K', vim.lsp.buf.hover, { desc = 'lsp show message when hover' })
-        set_keymap('n', '<leader>cf', vim.lsp.buf.format, { desc = 'lsp format buffer' })
-        set_keymap('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'lsp code action' })
-        set_keymap('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'lsp rename/refactor token' })
-        set_keymap('n', '<leader>ck', vim.diagnostic.open_float, { desc = 'lsp open float' })
-        set_keymap('n', '<leader>cn', vim.diagnostic.jump, { count = 1, float = true, desc = 'lsp next message' })
-        set_keymap('n', '<leader>cp', vim.diagnostic.jump, { count = -1, float = true, desc = 'lsp previous message' })
-
+        -- set_keymap('n', 'Ms', vim.lsp.buf.hover, { desc = 'lsp show message when hover' })
+        -- set_keymap('n', 'Mf', vim.lsp.buf.format, { desc = 'lsp format buffer' })
+        -- set_keymap('n', 'Ma', vim.lsp.buf.code_action, { desc = 'lsp code action' })
+        -- set_keymap('n', 'Mr', vim.lsp.buf.rename, { desc = 'lsp rename/refactor token' })
+        -- set_keymap('n', 'Mk', vim.diagnostic.open_float, { desc = 'lsp open float' })
+        -- set_keymap('n', 'Mn', vim.diagnostic.jump, { count = 1, float = true, desc = 'lsp next message' })
+        -- set_keymap('n', 'Mp', vim.diagnostic.jump, { count = -1, float = true, desc = 'lsp previous message' })
+        --
         -- Additional LSP-related configurations can be added here
       end
 
