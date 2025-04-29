@@ -1,7 +1,7 @@
 return {
   'catppuccin/nvim',
   name = 'catppuccin',
-  priority = 1001,
+  priority = 1004,
   init = function()
     -- Load the colorscheme here.
     -- Like many other themes, this one has different styles, and you could load
