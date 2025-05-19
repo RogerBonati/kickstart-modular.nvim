@@ -225,7 +225,17 @@ return {
             unusedparams = true,
           },
         },
-        jsonls = {},
+        jsonls = {
+          settings = {
+            json = {
+              format = {
+                indentStyle = 'space',
+                insertSpaces = true,
+                tabSize = 2,
+              },
+            },
+          },
+        },
         -- perlls = {},
         perlnavigator = {},
         -- perlpls = {},

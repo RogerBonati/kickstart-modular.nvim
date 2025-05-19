@@ -18,6 +18,16 @@ o.expandtab = true -- expand tab input with spaces characters
 o.tabstop = 2 -- num of space characters per tab
 o.shiftwidth = 2 -- spaces per indentation level
 
+-- Add these lines specifically for JSON
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'json', 'jsonc' },
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+  end,
+})
+
 -- Make line numbers default
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
