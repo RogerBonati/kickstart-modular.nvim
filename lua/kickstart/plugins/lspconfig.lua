@@ -215,7 +215,7 @@ return {
           filetypes = { 'yaml', 'yml', 'ansible' },
           root_dir = lspconfig.util.root_pattern('roles', 'playbooks', 'tasks'),
         },
-        bashls = {},
+        bashls = { cmd = { 'bash-language-server', 'start' }, filetypes = { 'bash', 'sh' } },
         dockerls = {},
         golangci_lint_ls = {},
         gopls = {
