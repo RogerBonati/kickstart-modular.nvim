@@ -73,6 +73,9 @@ vim.api.nvim_set_keymap('n', '<leader>te', ':lua vim.cmd("TransparentEnable")<CR
 vim.api.nvim_set_keymap('n', '<leader>td', ':lua vim.cmd("TransparentDisable")<CR>', { noremap = true, silent = true, desc = 'disable transparency' })
 vim.api.nvim_set_keymap('n', '<leader>tr', ':lua vim.cmd("TransparentToggle")<CR>', { noremap = true, silent = true, desc = 'toggle transparency' })
 
+-- toggle precognition
+vim.api.nvim_set_keymap('n', '<leader>pn', ':lua vim.cmd("Precognition toggle")<CR>', { noremap = true, silent = true, desc = 'toggle precognition' })
+
 -- relative linenumbers on of or no numbers
 vim.api.nvim_set_keymap(
   'n',
