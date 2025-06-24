@@ -75,6 +75,8 @@ vim.api.nvim_set_keymap('n', '<leader>tr', ':lua vim.cmd("TransparentToggle")<CR
 
 -- toggle precognition
 vim.api.nvim_set_keymap('n', '<leader>pn', ':lua vim.cmd("Precognition toggle")<CR>', { noremap = true, silent = true, desc = 'toggle precognition' })
+-- toggle hardtime
+vim.api.nvim_set_keymap('n', '<leader>ht', ':lua vim.cmd("Hardtime toggle")<CR>', { noremap = true, silent = true, desc = 'toggle hardtime' })
 
 -- relative linenumbers on of or no numbers
 vim.api.nvim_set_keymap(
