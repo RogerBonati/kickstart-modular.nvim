@@ -250,6 +250,30 @@ return {
           settings = {
             yaml = {
               linelength = 140,
+              customTags = {
+                '!vault scalar',
+                '!include',
+                '!ENV',
+                '!Ref',
+                '!Sub',
+                '!Equals',
+                '!If',
+                '!Not',
+                '!And',
+                '!Or',
+                '!FindInMap',
+                '!Base64',
+                '!Cidr',
+                '!ImportValue',
+                '!Join',
+                '!Select',
+                '!Split',
+                '!GetAtt',
+                '!GetAZs',
+                '!Condition',
+                '!Mustache', -- optional, symbolisch
+                '{{}}', -- Mustache-Syntax als Tag
+              },
               schemas = {
                 -- Kubernetes schema for both.yaml and.yml files
                 ['https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json'] = 'Koopa/**/*.+(yaml|yml)',
