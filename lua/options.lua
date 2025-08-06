@@ -17,6 +17,7 @@ local o = vim.o
 o.expandtab = true -- expand tab input with spaces characters
 o.tabstop = 2 -- num of space characters per tab
 o.shiftwidth = 2 -- spaces per indentation level
+o.winborder = 'rounded'
 
 -- Add these lines specifically for JSON
 vim.api.nvim_create_autocmd('FileType', {
