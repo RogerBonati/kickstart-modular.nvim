@@ -76,7 +76,9 @@ return {
         },
       }
 
-      require('lspconfig').lua_ls.setup { capabilities = capabilities }
+      -- require('lspconfig').lua_ls.setup { capabilities = capabilities }
+      vim.lsp.config('lua_ls', { capabilities = capabilities })
+      vim.lsp.enable 'lua_ls'
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
