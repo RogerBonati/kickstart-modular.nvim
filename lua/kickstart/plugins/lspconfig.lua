@@ -246,13 +246,37 @@ return {
       end
 
       local servers = {
-        -- clangd = {},
+
         ansiblels = {
           filetypes = { 'yaml', 'yml', 'ansible' },
-          -- root_dir = lspconfig.util.root_pattern('roles', 'playbooks', 'tasks'),
           root_dir = ansible_root_dir,
+          settings = {
+            ansible = {
+              validation = {
+                lint = {
+                  enabled = true,
+                  filetypes = { 'yaml', 'yml', 'ansible' },
+                  path = 'ansible-lint', -- optional, remove if not installed
+                },
+                enabled = true,
+                modules = {
+                  ignore = {},
+                },
+              },
+              python = {
+                interpreterPath = 'python3',
+              },
+            },
+          },
         },
+
+        -- ansiblels = {
+        --   filetypes = { 'yaml', 'yml', 'ansible' },
+        --   -- root_dir = lspconfig.util.root_pattern('roles', 'playbooks', 'tasks'),
+        --   root_dir = ansible_root_dir,
+        -- },
         bashls = { cmd = { 'bash-language-server', 'start' }, filetypes = { 'bash', 'sh' } },
+        clangd = {},
         dockerls = {},
         golangci_lint_ls = {},
         gopls = {

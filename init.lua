@@ -99,6 +99,12 @@ vim.g.netrw_browse_split = 4 -- open in prior window
 vim.g.netrw_altv = 1 -- change from left splitting to right splitting
 vim.g.netrw_liststyle = 3 -- tree style view in netrw
 
+-- For lsp diagnisis to popup
+vim.api.nvim_create_autocmd('CursorHold', {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focusable = false })
+  end,
+})
 -- [[ Setting options ]]
 require 'options'
 
