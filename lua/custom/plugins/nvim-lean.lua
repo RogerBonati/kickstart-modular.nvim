@@ -9,6 +9,7 @@ return {
     -- optional dependencies:
 
     -- a completion engine
+    'hrsh7th/nvim-cmp', -- or Saghen/blink.cmp are popular choices
     --    hrsh7th/nvim-cmp or Saghen/blink.cmp are popular choices
 
     -- 'nvim-telescope/telescope.nvim', -- for 2 Lean-specific pickers
