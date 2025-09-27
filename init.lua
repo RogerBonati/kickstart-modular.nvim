@@ -105,6 +105,23 @@ vim.api.nvim_create_autocmd('CursorHold', {
     vim.diagnostic.open_float(nil, { focusable = false })
   end,
 })
+
+-- detect ansible files
+--
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = {
+    '*/roles/*/tasks/*.yml',
+    '*/roles/*/handlers/*.yml',
+    '*/playbooks/*.yml',
+    '*/tasks/*.yml',
+    '*/handlers/*.yml',
+    'site.yml',
+    'main.yml',
+  },
+  callback = function()
+    vim.bo.filetype = 'yaml.ansible'
+  end,
+})
 -- [[ Setting options ]]
 require 'options'
 

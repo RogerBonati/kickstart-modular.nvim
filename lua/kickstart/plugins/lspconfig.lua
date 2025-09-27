@@ -248,7 +248,7 @@ return {
       local servers = {
 
         ansiblels = {
-          filetypes = { 'yaml', 'yml', 'ansible' },
+          filetypes = { 'yaml', 'yml', 'ansible', 'yaml.ansible' },
           root_dir = ansible_root_dir,
           settings = {
             ansible = {
@@ -257,6 +257,7 @@ return {
                   enabled = true,
                   filetypes = { 'yaml', 'yml', 'ansible' },
                   path = 'ansible-lint', -- optional, remove if not installed
+                  args = { '-c', '.ansible-lint' }, -- explicitly load the config if needed
                 },
                 enabled = true,
                 modules = {
