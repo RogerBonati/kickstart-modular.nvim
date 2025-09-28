@@ -4,6 +4,7 @@ return {
     'obsidian-nvim/obsidian.nvim',
     version = '*', -- recommended, use latest release instead of latest commit
     lazy = true,
+    nvim_cmp = true,
     ft = 'markdown',
     dependencies = {
       -- Required.
@@ -11,7 +12,29 @@ return {
 
       -- see below for full list of optional dependencies 👇
     },
+
+    require('cmp').setup {
+      sources = {
+        { name = 'nvim_lsp' },
+        { name = 'buffer' },
+      },
+      mapping = {
+        ['<C-p>'] = require('cmp').mapping.select_prev_item(),
+        ['<C-n>'] = require('cmp').mapping.select_next_item(),
+        ['<C-y>'] = require('cmp').mapping.confirm(),
+      },
+    },
+
     opts = {
+      completion = { blink = false },
+      --
+      --   completion = {
+      --     -- Set to false to disable completion.
+      --     nvim_cmp = true,
+      --     -- Trigger completion at 2 chars.
+      --     min_chars = 2,
+      --   },
+      --
       legacy_commands = false,
       workspaces = {
         {
