@@ -26,7 +26,7 @@ return {
     },
 
     opts = {
-      completion = { blink = false },
+      completion = { blink = true },
       --
       --   completion = {
       --     -- Set to false to disable completion.
