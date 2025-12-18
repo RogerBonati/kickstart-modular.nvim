@@ -76,7 +76,9 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        --  default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer', 'markdown' },
+        -- default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
