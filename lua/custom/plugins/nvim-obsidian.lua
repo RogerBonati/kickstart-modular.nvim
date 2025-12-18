@@ -26,15 +26,13 @@ return {
     },
 
     opts = {
-      completion = { blink = true },
-      --
-      --   completion = {
-      --     -- Set to false to disable completion.
-      --     nvim_cmp = true,
-      --     -- Trigger completion at 2 chars.
-      --     min_chars = 2,
-      --   },
-      --
+      completion = {
+        blink = true,
+        -- Set to false to disable completion.
+        nvim_cmp = true,
+        -- Trigger completion at 2 chars.
+        min_chars = 2,
+      },
       legacy_commands = false,
       workspaces = {
         {
