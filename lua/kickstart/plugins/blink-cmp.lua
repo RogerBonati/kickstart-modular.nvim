@@ -28,7 +28,12 @@ return {
             end,
           },
         },
-        opts = {},
+        opts = {
+          enabled = function(ctx)
+            -- ctx.filetype is provided to Blink's config callbacks
+            return ctx.filetype ~= 'markdown'
+          end,
+        },
       },
       'folke/lazydev.nvim',
     },
@@ -59,7 +64,7 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
 
-        -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
+        jk, -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
 
@@ -76,8 +81,10 @@ return {
       },
 
       sources = {
-        --  default = { 'lsp', 'path', 'snippets', 'lazydev' },
-        default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer', 'markdown' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        -- default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer', 'markdown' },
+        -- default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer' },
+
         -- default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
