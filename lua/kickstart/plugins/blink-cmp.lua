@@ -2,7 +2,7 @@ return {
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
-    -- version = '1.*',
+    version = '1.*',
     dependencies = {
       -- Snippet Engine
       {
@@ -21,19 +21,14 @@ return {
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
+          -- {
+          --   'rafamadriz/friendly-snippets',
+          --   config = function()
+          --     require('luasnip.loaders.from_vscode').lazy_load()
+          --   end,
+          -- },
         },
-        opts = {
-          enabled = function(ctx)
-            -- ctx.filetype is provided to Blink's config callbacks
-            return ctx.filetype ~= 'markdown'
-          end,
-        },
+        opts = {},
       },
       'folke/lazydev.nvim',
     },
@@ -64,7 +59,7 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
 
-        jk, -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
+        -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
 
@@ -72,22 +67,32 @@ return {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono',
+        use_nvim_cmp_as_default = false, -- prevents cmp-style formatting
       },
 
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        keyword = {
+          range = 'full',
+        },
       },
-
+      signature = { enabled = false },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
-        -- default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer', 'markdown' },
-        -- default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'obsidian,', 'lsp', 'path', 'buffer', 'snippets', 'lazydev' },
 
-        -- default = { 'obsidian', 'obsidian_new', 'obsidian_tags', 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          obsidian = {
+            transform_items = function(items)
+              for _, item in ipairs(items) do
+                item.label = item.text
+                item.insertText = item.text
+              end
+              return items
+            end,
+          },
         },
       },
 
@@ -101,10 +106,9 @@ return {
       --
       -- See :h blink-cmp-config-fuzzy for more information
       fuzzy = { implementation = 'lua' },
-      -- fuzzy = { implementation = 'prefer_rust_with_warning' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      -- signature = { enabled = true },
     },
   },
 }
