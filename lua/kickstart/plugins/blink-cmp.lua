@@ -3,6 +3,7 @@ return {
     'saghen/blink.cmp',
     event = 'VimEnter',
     version = '1.*',
+    opts_extend = { 'sources.providers' },
     dependencies = {
       -- Snippet Engine
       {
@@ -80,11 +81,12 @@ return {
       },
       signature = { enabled = false },
       sources = {
-        default = { 'obsidian,', 'lsp', 'path', 'buffer', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'buffer', 'snippets', 'lazydev' },
 
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
           obsidian = {
+            module = 'obsidian.completion.blink',
             transform_items = function(items)
               for _, item in ipairs(items) do
                 item.label = item.text
