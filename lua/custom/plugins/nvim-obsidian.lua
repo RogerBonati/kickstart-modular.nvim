@@ -47,6 +47,7 @@ return {
         default_tags = { 'daily-notes' },
         -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
         template = '_Vorlagen/Datumsnotizen',
+        id_format = '%Y-%m-%d',
       },
       -- Optional, for templates (see below).
       templates = {
