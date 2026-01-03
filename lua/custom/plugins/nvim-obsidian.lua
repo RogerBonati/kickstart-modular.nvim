@@ -5,10 +5,9 @@ return {
     version = '*', -- recommended, use latest release instead of latest commit
     lazy = true,
     -- nvim_cmp = true,
-    event = {
-      'BufReadPre ~/Eigenedat/ObisdianVault/*.md',
-      'BufNewFile ~/Eigenedat/ObsidianVault/*.md',
-    },
+
+    --   'BufNewFile ~/Eigenedat/ObsidianVault/*.md',
+    -- },
     ft = 'markdown',
     dependencies = {
       -- Required.
@@ -19,14 +18,15 @@ return {
 
     opts = {
       completion = {
-        -- blink = true,
-        blink = false,
+        blink = true,
+        -- blink = false,
         -- Set to false to disable completion.
-        nvim_cmp = true,
-        -- nvim_cmp = false,
+        -- nvim_cmp = true,
+        nvim_cmp = false,
         -- Trigger completion at 2 chars.
         -- min_chars = 2,
       },
+      -- legacy_commands = true,
       legacy_commands = false,
       workspaces = {
         {
@@ -40,7 +40,7 @@ return {
         -- Optional, if you keep daily notes in a separate directory.
         folder = '_Datumsnotizen',
         -- Optional, if you want to change the date format for the ID of daily notes.
-        -- date_format = "%Y-%m-%d",
+        date_format = '%Y-%m-%d',
         -- Optional, if you want to change the date format of the default alias of daily notes.
         alias_format = '%B %-d, %Y',
         -- Optional, default tags to add to each new daily note created.

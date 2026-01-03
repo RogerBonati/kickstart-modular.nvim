@@ -14,7 +14,7 @@ return {
       sources = {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
-        { name = 'obsidian' }, -- this is the correct place
+        -- { name = 'obsidian' }, -- this is the correct place
         { name = 'obsidian', keyword_length = 1, keyword_pattern = [[\k\+]] },
       },
       mapping = {
