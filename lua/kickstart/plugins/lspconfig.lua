@@ -287,18 +287,20 @@ return {
             unusedparams = true,
           },
         },
-        jsonls = {
-          settings = {
-            json = {
-              format = {
-                indentStyle = 'space',
-                insertSpaces = true,
-                tabSize = 2,
-              },
-            },
-          },
-        },
+
+        -- jsonls = {
+        --   settings = {
+        --     json = {
+        --       format = {
+        --         indentStyle = 'space',
+        --         insertSpaces = true,
+        --         tabSize = 2,
+        --       },
+        --     },
+        --   },
+        -- },
         -- perlls = {},
+
         perlnavigator = {},
         -- perlpls = {},
         -- posgres_lsp = {},
@@ -307,47 +309,47 @@ return {
         pylyzer = {},
         pyre = {},
 
-        yamlls = {
-          capabilities = {},
-          -- on_attach=on_attach,
-          settings = {
-            yaml = {
-              linelength = 140,
-              customTags = {
-                '!vault scalar',
-                '!include',
-                '!ENV',
-                '!Ref',
-                '!Sub',
-                '!Equals',
-                '!If',
-                '!Not',
-                '!And',
-                '!Or',
-                '!FindInMap',
-                '!Base64',
-                '!Cidr',
-                '!ImportValue',
-                '!Join',
-                '!Select',
-                '!Split',
-                '!GetAtt',
-                '!GetAZs',
-                '!Condition',
-                '!Mustache', -- optional, symbolisch
-                '{{}}', -- Mustache-Syntax als Tag
-              },
-              schemas = {
-                -- Kubernetes schema for both.yaml and.yml files
-                ['https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json'] = 'Koopa/**/*.+(yaml|yml)',
-                ['https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json'] = 'conf/**/*catalog*',
-                ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
-                ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/deploymentproject.json'] = '/mam-project.yml',
-                ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/ypasset.json'] = '/mam-project.yml',
-              },
-            },
-          },
-        },
+        -- yamlls = {
+        --   capabilities = {},
+        --   -- on_attach=on_attach,
+        --   settings = {
+        --     yaml = {
+        --       linelength = 140,
+        --       customTags = {
+        --         '!vault scalar',
+        --         '!include',
+        --         '!ENV',
+        --         '!Ref',
+        --         '!Sub',
+        --         '!Equals',
+        --         '!If',
+        --         '!Not',
+        --         '!And',
+        --         '!Or',
+        --         '!FindInMap',
+        --         '!Base64',
+        --         '!Cidr',
+        --         '!ImportValue',
+        --         '!Join',
+        --         '!Select',
+        --         '!Split',
+        --         '!GetAtt',
+        --         '!GetAZs',
+        --         '!Condition',
+        --         '!Mustache', -- optional, symbolisch
+        --         '{{}}', -- Mustache-Syntax als Tag
+        --       },
+        --       schemas = {
+        --         -- Kubernetes schema for both.yaml and.yml files
+        --         ['https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json'] = 'Koopa/**/*.+(yaml|yml)',
+        --         ['https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json'] = 'conf/**/*catalog*',
+        --         ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+        --         ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/deploymentproject.json'] = '/mam-project.yml',
+        --         ['https://git.mam.dev/pocu/schemas/mam-eam/-/raw/main/ypasset.json'] = '/mam-project.yml',
+        --       },
+        --     },
+        --   },
+        -- },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
