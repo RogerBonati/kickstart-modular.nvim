@@ -10,7 +10,7 @@ return {
       filetypes = { 'yaml', 'yml', 'yaml.ansible' },
       generator = null_ls.generator {
         command = 'ansible-lint',
-        args = { '--parseable', '-' }, -- "-" tells ansible-lint to read from stdin
+        args = { '--format', 'pep8', '-' }, -- "-" tells ansible-lint to read from stdin
         to_stdin = true,
         from_stderr = false,
         format = 'line',
