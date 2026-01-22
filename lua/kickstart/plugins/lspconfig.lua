@@ -248,7 +248,7 @@ return {
       local servers = {
 
         ansiblels = {
-          filetypes = { 'yaml', 'yml', 'ansible', 'yaml.ansible' },
+          filetypes = { 'ansible', 'yaml.ansible' },
           root_dir = ansible_root_dir,
           settings = {
             ansible = {
@@ -402,18 +402,53 @@ return {
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      --     function(server_name)
+      --       local server = servers[server_name] or {}
+      --       -- This handles overriding only values explicitly passed
+      --       -- by the server configuration above. Useful when disabling
+      --       -- certain features of an LSP (for example, turning off formatting for ts_ls)
+      --       server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+      --       require('lspconfig')[server_name].setup(server)
+      --     end,
+      --   },
+      -- }
+      --
+
       require('mason-lspconfig').setup {
         handlers = {
+          -- Override yamlls explicitly
+          yamlls = function()
+            require('lspconfig').yamlls.setup {
+              settings = {
+                redhat = {
+                  telemetry = { enabled = false },
+                },
+                yaml = {
+                  format = {
+                    enable = false, -- ✅ THIS is the key line
+                  },
+                },
+              },
+              on_attach = function(client, bufnr)
+                -- Absolute kill switch: remove formatting capability
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+              end,
+            }
+          end,
+
+          -- Default handler for all other servers
           function(server_name)
             local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
         },
       }
+
+      --
+      --
+      --
     end,
   },
 }

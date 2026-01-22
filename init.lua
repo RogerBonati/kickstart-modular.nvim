@@ -122,6 +122,16 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.bo.filetype = 'yaml.ansible'
   end,
 })
+
+-- Place in your init.lua or a plugin config file
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'yml', 'yaml', 'yaml.ansible', 'helm' },
+  callback = function()
+    -- Option 1: Remove any existing format-on-save autocmd for this buffer
+    vim.api.nvim_clear_autocmds { buffer = 0, event = 'BufWritePre' }
+  end,
+})
+
 -- [[ Setting options ]]
 require 'options'
 

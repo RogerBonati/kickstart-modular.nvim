@@ -37,6 +37,13 @@ return {
       sources = {
         ansible_lint,
       },
+      on_attach = function(client, bufnr)
+        -- don't enable format-on-save for yaml
+        local ft = vim.bo[bufnr].filetype
+        if ft == 'yml' or ft == 'yaml' or ft == 'yaml.ansible' or ft == 'helm' then
+          client.server_capabilities.documentFormattingProvider = false
+        end
+      end,
     }
   end,
 }
