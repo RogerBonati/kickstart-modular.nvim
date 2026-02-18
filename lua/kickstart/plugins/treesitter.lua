@@ -1,10 +1,11 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
+    -- build = ':TSUpdate',
+    branch = 'master',
 
-    -- REMOVE the invalid "main" field
-    -- main = 'nvim-treesitter.config',
+    main = 'nvim-treesitter',
+    lazy = false,
 
     opts = {
       ensure_installed = {
@@ -59,7 +60,7 @@ return {
     },
 
     config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
+      require('nvim-treesitter').setup(opts)
     end,
   },
 }
