@@ -81,10 +81,11 @@ return {
       },
       signature = { enabled = false },
       sources = {
-        default = { 'lsp', 'path', 'buffer', 'snippets', 'lazydev' },
+        -- default = { 'lsp', 'path', 'buffer', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'buffer', 'snippets' },
 
         providers = {
-          lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          -- lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
           obsidian = {
             module = 'obsidian.completion.blink',
             transform_items = function(items)
