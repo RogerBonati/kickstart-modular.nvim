@@ -58,7 +58,7 @@ return {
         substitutions = {},
       },
       -- Either 'wiki' or 'markdown'.
-      preferred_link_style = 'wiki',
+      -- preferred_link_style = 'wiki',
       -- preferred_link_style = 'markdown',
       -- see below for full list of options 👇
     },
