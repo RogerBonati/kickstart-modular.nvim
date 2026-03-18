@@ -54,8 +54,8 @@ return {
       snippets = { preset = 'luasnip' },
 
       fuzzy = {
-        implementation = 'lua',
-        use_rust = false, -- verhindert die Warnung
+        implementation = 'prefer_rust',
+        -- use_rust = false, -- verhindert die Warnung
       },
     },
   },
