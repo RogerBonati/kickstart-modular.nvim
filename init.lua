@@ -99,6 +99,19 @@ vim.g.netrw_browse_split = 4 -- open in prior window
 vim.g.netrw_altv = 1 -- change from left splitting to right splitting
 vim.g.netrw_liststyle = 3 -- tree style view in netrw
 
+vim.g.clipboard = {
+  name = 'wl-clipboard',
+  copy = {
+    ['+'] = 'wl-copy',
+    ['*'] = 'wl-copy',
+  },
+  paste = {
+    ['+'] = 'wl-paste --no-newline',
+    ['*'] = 'wl-paste --no-newline',
+  },
+  cache_enabled = 0,
+}
+
 -- For lsp diagnisis to popup
 vim.api.nvim_create_autocmd('CursorHold', {
   callback = function()
